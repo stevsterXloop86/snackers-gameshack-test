@@ -8,7 +8,12 @@
   <style>
     body {
       background-color: lightblue;
-      text-align: center; /* Center all text in the body */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
     }
 
     h1 {
@@ -28,15 +33,19 @@
       font-size: 20px;
     }
 
+    .button-container {
+      display: flex;
+      justify-content: center; /* Centers buttons horizontally */
+      gap: 20px; /* Adds space between buttons */
+    }
+
     a {
-      display: inline-block; /* Allows block-level styling while keeping the link inline */
       font-family: "Comic Sans MS";
       font-size: 50px;
       background-color: #04AA6D; /* Green */
       text-decoration: none;
       color: white;
       padding: 20px;
-      margin: 10px;
       border-radius: 10px; /* Rounded corners */
       width: 300px; /* Fixed width */
       height: 100px; /* Fixed height */
@@ -54,11 +63,11 @@
   <h1>Snacker's Game Shack</h1>
   <h2>Unblocked games</h2>
 
-  <a href="games/index.html">Games</a>
-  <br><br>
-  <a href="credits/index.html">Credits</a>
-  <br><br>
-  <a href="apps/index.html">Apps</a> <!-- Added the new Apps button -->
+  <div class="button-container">
+    <a href="games/index.html">Games</a>
+    <a href="credits/index.html">Credits</a>
+    <a href="apps/index.html">Apps</a> <!-- Added the new Apps button -->
+  </div>
 </body>
 
 </html>
