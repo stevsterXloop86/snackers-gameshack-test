@@ -18,13 +18,13 @@
 
     h1 {
       color: white;
-      font-family: "Comic Sans MS";
+      font-family: "Comic Sans MS", sans-serif;
       font-size: 100px;
     }
 
     h2 {
       color: white;
-      font-family: "Comic Sans MS";
+      font-family: "Comic Sans MS", sans-serif;
       font-size: 50px;
     }
 
@@ -40,7 +40,7 @@
     }
 
     a {
-      font-family: "Comic Sans MS", sans-serif;
+      font-family: "Comic Sans MS", sans-serif; /* Fallback font */
       font-size: 50px;
       background-color: #04AA6D; /* Green */
       text-decoration: none;
@@ -49,8 +49,9 @@
       border-radius: 10px; /* Rounded corners */
       width: 150px; /* Fixed width */
       height: 50px; /* Fixed height */
-      line-height: 50; /* Centers text vertically */
+      line-height: 50px; /* Centers text vertically */
       text-align: center; /* Centers text horizontally */
+      display: inline-block; /* Ensures proper box model for width/height */
     }
 
     a:hover {
