@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Change Favicon</title>
     <!-- Default Favicon -->
-    <link id="favicon" rel="icon" href="default.ico">
+    <link id="favicon" rel="icon" href="images/icons/default.ico">
 </head>
 <body>
 
@@ -28,34 +28,18 @@
         // Function to change favicon based on selected option
         function changeFavicon(icon) {
             let favicon = document.getElementById('favicon');
-            switch (icon) {
-                case 'google':
-                    favicon.href = 'google.ico';
-                    break;
-                case 'googleclassroom':
-                    favicon.href = 'googleclassroom.ico';
-                    break;
-                case 'googledrive':
-                    favicon.href = 'googledrive.ico';
-                    break;
-                case 'chrometab':
-                    favicon.href = 'chrometab.ico';
-                    break;
-                case 'gmail':
-                    favicon.href = 'gmail.ico';
-                    break;
-                case 'bing':
-                    favicon.href = 'bing.ico';
-                    break;
-                case 'desmos':
-                    favicon.href = 'desmos.ico';
-                    break;
-                case 'wikipedia':
-                    favicon.href = 'wikipedia.ico';
-                    break;
-                default:
-                    favicon.href = 'default.ico';
-            }
+            const iconPath = `images/icons/${icon}.ico`;
+            
+            // Check if the icon path exists (simple check)
+            const img = new Image();
+            img.src = iconPath;
+            img.onload = function() {
+                favicon.href = iconPath;
+            };
+            img.onerror = function() {
+                console.error(`Favicon not found: ${iconPath}`);
+                favicon.href = 'images/icons/default.ico'; // Fall back to default if not found
+            };
         }
 
         // Event listener for the save button to change favicon
