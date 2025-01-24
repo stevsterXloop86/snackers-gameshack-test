@@ -1,24 +1,76 @@
 <!DOCTYPE html>
-
-
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Favicon</title>
+    <!-- Default Favicon -->
+    <link id="favicon" rel="icon" href="default.ico">
+</head>
 <body>
 
+    <select id="presetSelect">
+        <option value="google">google</option>
+        <option value="googleclassroom">google classroom</option>
+        <option value="googledrive">google drive</option>
+        <option value="chrometab">chrome new tab</option>
+        <option value="gmail">gmail</option>
+        <option value="bing">bing</option>
+        <option value="desmos">desmos calculator</option>
+        <option value="wikipedia">wikipedia</option>
+    </select>
 
-<select id="presetSelect">
-                <option value="google">google</option>
-                <option value="googleclassroom">google classroom</option>
-                <option value="googledrive">google drive</option>
-                <option value="chrometab">chrome new tab</option>
-                <option value="gmail">gmail</option>
-                <option value="bing">bing</option>
-                <option value="desmos">desmos calculator</option>
-                <option value="wikipedia">wikipedia</option>
-            </select>
-        
-            <button id="saveButton">select cloak</button>
-            <button id="resetButton">reset cloak</button>
-            <p id="success" style="display: none;">success message here</p>
-            
+    <button id="saveButton">select cloak</button>
+    <button id="resetButton">reset cloak</button>
+    <p id="success" style="display: none;">success message here</p>
 
-  
+    <script>
+        // Function to change favicon based on selected option
+        function changeFavicon(icon) {
+            let favicon = document.getElementById('favicon');
+            switch (icon) {
+                case 'google':
+                    favicon.href = 'google.ico';
+                    break;
+                case 'googleclassroom':
+                    favicon.href = 'googleclassroom.ico';
+                    break;
+                case 'googledrive':
+                    favicon.href = 'googledrive.ico';
+                    break;
+                case 'chrometab':
+                    favicon.href = 'chrometab.ico';
+                    break;
+                case 'gmail':
+                    favicon.href = 'gmail.ico';
+                    break;
+                case 'bing':
+                    favicon.href = 'bing.ico';
+                    break;
+                case 'desmos':
+                    favicon.href = 'desmos.ico';
+                    break;
+                case 'wikipedia':
+                    favicon.href = 'wikipedia.ico';
+                    break;
+                default:
+                    favicon.href = 'default.ico';
+            }
+        }
+
+        // Event listener for the save button to change favicon
+        document.getElementById('saveButton').addEventListener('click', function() {
+            const selectedValue = document.getElementById('presetSelect').value;
+            changeFavicon(selectedValue);
+            document.getElementById('success').style.display = 'block';
+        });
+
+        // Event listener for the reset button to reset the favicon
+        document.getElementById('resetButton').addEventListener('click', function() {
+            changeFavicon('google'); // Reset to default icon
+            document.getElementById('success').style.display = 'none';
+        });
+    </script>
+
 </body>
+</html>
