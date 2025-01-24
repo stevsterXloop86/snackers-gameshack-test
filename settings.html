@@ -36,8 +36,13 @@
             img.onload = function() {
                 favicon.href = iconPath;
 
-                // Change the title based on the icon name (capitalize the first letter)
-                const title = icon.charAt(0).toUpperCase() + icon.slice(1);
+                // Capitalize first letter of each word in title
+                const titleWords = icon.split(' '); // Split into words
+                const capitalizedWords = titleWords.map(word => 
+                    word.charAt(0).toUpperCase() + word.slice(1) // Capitalize first letter of each word
+                );
+                const title = capitalizedWords.join(' '); // Join the words back into a title
+
                 document.title = title; // Update the page title
             };
             img.onerror = function() {
