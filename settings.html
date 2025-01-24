@@ -25,33 +25,38 @@
     <p id="success" style="display: none;">success message here</p>
 
     <script>
-        // Function to change favicon based on selected option
-        function changeFavicon(icon) {
+        // Function to change favicon and title based on selected option
+        function changeFaviconAndTitle(icon) {
             let favicon = document.getElementById('favicon');
             const iconPath = `images/icons/${icon}.ico`;
             
-            // Check if the icon path exists (simple check)
+            // Update favicon path
             const img = new Image();
             img.src = iconPath;
             img.onload = function() {
                 favicon.href = iconPath;
+
+                // Change the title based on the icon name (capitalize the first letter)
+                const title = icon.charAt(0).toUpperCase() + icon.slice(1);
+                document.title = title; // Update the page title
             };
             img.onerror = function() {
                 console.error(`Favicon not found: ${iconPath}`);
                 favicon.href = 'images/icons/default.ico'; // Fall back to default if not found
+                document.title = "Default"; // Fall back to default title if the icon is not found
             };
         }
 
-        // Event listener for the save button to change favicon
+        // Event listener for the save button to change favicon and title
         document.getElementById('saveButton').addEventListener('click', function() {
             const selectedValue = document.getElementById('presetSelect').value;
-            changeFavicon(selectedValue);
+            changeFaviconAndTitle(selectedValue);
             document.getElementById('success').style.display = 'block';
         });
 
-        // Event listener for the reset button to reset the favicon
+        // Event listener for the reset button to reset the favicon and title
         document.getElementById('resetButton').addEventListener('click', function() {
-            changeFavicon('google'); // Reset to default icon
+            changeFaviconAndTitle('google'); // Reset to default icon and title
             document.getElementById('success').style.display = 'none';
         });
     </script>
