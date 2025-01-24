@@ -36,12 +36,13 @@
             img.onload = function() {
                 favicon.href = iconPath;
 
-                // Capitalize first letter of each word in title
-                const titleWords = icon.split(' '); // Split into words
+                // Capitalize first letter of each word in title and separate camel case words
+                let title = icon.replace(/([a-z])([A-Z])/g, '$1 $2'); // Add space between camel case words
+                const titleWords = title.split(' '); // Split into words
                 const capitalizedWords = titleWords.map(word => 
                     word.charAt(0).toUpperCase() + word.slice(1) // Capitalize first letter of each word
                 );
-                const title = capitalizedWords.join(' '); // Join the words back into a title
+                title = capitalizedWords.join(' '); // Join the words back into a title
 
                 document.title = title; // Update the page title
             };
